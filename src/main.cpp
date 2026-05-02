@@ -98,12 +98,27 @@ void drawMainRoad() {
     drawRectangle(0.0f, 280.0f, 1200.0f, 120.0f);
 }
 
+// FEATURE 6: Road divider
+void drawRoadDivider() {
+    setColor(1.0f, 1.0f, 1.0f);
+
+    // Dashed center divider
+    for (float x = 0.0f; x < 1200.0f; x += 60.0f) {
+        drawRectangle(x, 338.0f, 35.0f, 4.0f);
+    }
+
+    // Side boundary lines
+    drawRectangle(0.0f, 282.0f, 1200.0f, 3.0f);
+    drawRectangle(0.0f, 395.0f, 1200.0f, 3.0f);
+}
+
 void drawCityScene() {
     drawCitySky();
     drawCitySun();
     drawTallBuildings();
     drawBuildingWindows();
     drawMainRoad();
+    drawRoadDivider();
 }
 
 void display() {
