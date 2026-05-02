@@ -39,9 +39,28 @@ void drawCitySun() {
     drawCircle(1080.0f, 700.0f, 45.0f);
 }
 
+// FEATURE 3: Tall buildings
+void drawTallBuildings() {
+    setColor(0.45f, 0.45f, 0.50f);
+    drawRectangle(60.0f, 400.0f, 90.0f, 220.0f);
+
+    setColor(0.50f, 0.50f, 0.55f);
+    drawRectangle(180.0f, 400.0f, 100.0f, 270.0f);
+
+    setColor(0.42f, 0.42f, 0.48f);
+    drawRectangle(320.0f, 400.0f, 110.0f, 240.0f);
+
+    setColor(0.52f, 0.52f, 0.58f);
+    drawRectangle(470.0f, 400.0f, 95.0f, 290.0f);
+
+    setColor(0.47f, 0.47f, 0.53f);
+    drawRectangle(600.0f, 400.0f, 105.0f, 250.0f);
+}
+
 void drawCityScene() {
     drawCitySky();
     drawCitySun();
+    drawTallBuildings();
 }
 
 void display() {
