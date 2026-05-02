@@ -1,4 +1,5 @@
 #include <GL/glut.h>
+#include <cmath>
 #include <iostream>
 
 int windowWidth = 1200;
@@ -17,14 +18,30 @@ void drawRectangle(float x, float y, float width, float height) {
     glEnd();
 }
 
+void drawCircle(float x, float y, float radius, int segments = 40) {
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < segments; i++) {
+        float angle = 2.0f * 3.1415926f * i / segments;
+        glVertex2f(x + radius * cos(angle), y + radius * sin(angle));
+    }
+    glEnd();
+}
+
 // FEATURE 1: City sky background
 void drawCitySky() {
     setColor(0.50f, 0.80f, 1.00f);
     drawRectangle(0.0f, 400.0f, 1200.0f, 400.0f);
 }
 
+// FEATURE 2: Sun in city
+void drawCitySun() {
+    setColor(1.0f, 0.9f, 0.0f);
+    drawCircle(1080.0f, 700.0f, 45.0f);
+}
+
 void drawCityScene() {
     drawCitySky();
+    drawCitySun();
 }
 
 void display() {
