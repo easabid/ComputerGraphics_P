@@ -57,10 +57,46 @@ void drawTallBuildings() {
     drawRectangle(600.0f, 400.0f, 105.0f, 250.0f);
 }
 
+// FEATURE 4: Building windows
+void drawBuildingWindows() {
+    setColor(1.0f, 1.0f, 0.4f);
+
+    for (float y = 430.0f; y <= 590.0f; y += 35.0f) {
+        for (float x = 75.0f; x <= 125.0f; x += 20.0f) {
+            drawRectangle(x, y, 10.0f, 15.0f);
+        }
+    }
+
+    for (float y = 430.0f; y <= 640.0f; y += 35.0f) {
+        for (float x = 200.0f; x <= 250.0f; x += 20.0f) {
+            drawRectangle(x, y, 10.0f, 15.0f);
+        }
+    }
+
+    for (float y = 430.0f; y <= 610.0f; y += 35.0f) {
+        for (float x = 340.0f; x <= 390.0f; x += 20.0f) {
+            drawRectangle(x, y, 10.0f, 15.0f);
+        }
+    }
+
+    for (float y = 430.0f; y <= 660.0f; y += 35.0f) {
+        for (float x = 490.0f; x <= 540.0f; x += 20.0f) {
+            drawRectangle(x, y, 10.0f, 15.0f);
+        }
+    }
+
+    for (float y = 430.0f; y <= 620.0f; y += 35.0f) {
+        for (float x = 620.0f; x <= 670.0f; x += 20.0f) {
+            drawRectangle(x, y, 10.0f, 15.0f);
+        }
+    }
+}
+
 void drawCityScene() {
     drawCitySky();
     drawCitySun();
     drawTallBuildings();
+    drawBuildingWindows();
 }
 
 void display() {
