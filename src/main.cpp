@@ -92,11 +92,18 @@ void drawBuildingWindows() {
     }
 }
 
+// FEATURE 5: Main road
+void drawMainRoad() {
+    setColor(0.15f, 0.15f, 0.15f);
+    drawRectangle(0.0f, 280.0f, 1200.0f, 120.0f);
+}
+
 void drawCityScene() {
     drawCitySky();
     drawCitySun();
     drawTallBuildings();
     drawBuildingWindows();
+    drawMainRoad();
 }
 
 void display() {
