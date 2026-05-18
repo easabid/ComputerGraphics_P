@@ -854,23 +854,19 @@ void drawVillageScene(float alpha)
 
     // Trees
 
-    glPushMatrix();
-
-    glScalef(treeScale,
-
-             treeScale,
-
-             1);
-
-    drawTree(8,32,alpha);
-
-    drawTree(22,32,alpha);
-
-    drawTree(55,32,alpha);
-
-    drawTree(80,32,alpha);
-
-    glPopMatrix();
+    // Trees (can be toggled)
+    if(showTrees)
+    {
+        glPushMatrix();
+        glScalef(treeScale,
+                 treeScale,
+                 1);
+        drawTree(8,32,alpha);
+        drawTree(22,32,alpha);
+        drawTree(55,32,alpha);
+        drawTree(80,32,alpha);
+        glPopMatrix();
+    }
 
     // Bushes
 
