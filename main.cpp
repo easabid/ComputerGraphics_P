@@ -308,11 +308,11 @@ void display()
 
     drawStars();
 
-    // Scenes
-
-    drawCityScene(1.0f - transitionAlpha);
-
-    drawVillageScene(transitionAlpha);
+    // Scenes (can be toggled)
+    if(showCityScene)
+        drawCityScene(1.0f - transitionAlpha);
+    if(showVillageScene)
+        drawVillageScene(transitionAlpha);
 
     // Weather
 
@@ -410,6 +410,12 @@ void resetScene()
 
     zoomScale = 1.0f;
 
+    // Layer flags (default visible)
+    showCityScene = true;
+    showVillageScene = true;
+    showBuildings = true;
+    showTrees = true;
+
 }
 
 // ================= KEYBOARD =================
@@ -426,14 +432,13 @@ void keyboard(unsigned char key,
 
     {
 
-        // Start transition
-
+        // Start/stop transition
         case 't':
-
         case 'T':
-
             startTransition = true;
-
+            break;
+        case ' ': // toggle transition play/pause
+            startTransition = !startTransition;
             break;
 
         // Force day
@@ -556,6 +561,38 @@ void keyboard(unsigned char key,
 
             }
 
+            break;
+
+        // Quick scene switches
+        case '1':
+            startTransition = false;
+            transitionAlpha = 0.0f;
+            break;
+
+        case '2':
+            startTransition = false;
+            transitionAlpha = 1.0f;
+            break;
+
+        // Layer toggles
+        case 'b':
+        case 'B':
+            showBuildings = !showBuildings;
+            break;
+
+        case 'g':
+        case 'G':
+            showTrees = !showTrees;
+            break;
+
+        case 'o':
+        case 'O':
+            showCityScene = !showCityScene;
+            break;
+
+        case 'i':
+        case 'I':
+            showVillageScene = !showVillageScene;
             break;
 
         // Reset everything

@@ -36,6 +36,16 @@ float roadTransition = 0.0f;
 
 float cameraOffset = 0.0f;
 
+// ================= LAYER FLAGS =================
+
+bool showCityScene = true;
+
+bool showVillageScene = true;
+
+bool showBuildings = true;
+
+bool showTrees = true;
+
 // ================= SUN =================
 
 float sunX = -20.0f;
@@ -52,90 +62,30 @@ float moonY = 88.0f;
 
 float skyRed = 0.72f;
 
-float skyGreen = 0.86f;
 
-float skyBlue = 0.98f;
+        // advance transition alpha (drives all synced transforms)
+        transitionAlpha += 0.0015f * animationSpeed;
+        if(transitionAlpha > 1.0f)
+            transitionAlpha = 1.0f;
 
-// ================= SUN & MOON =================
+        // derive transforms directly from transitionAlpha for precise synchronization
+        buildingScale = 1.0f - transitionAlpha;
+        if(buildingScale < 0.0f) buildingScale = 0.0f;
 
-void drawSunAndMoon(float alpha)
+        treeScale = transitionAlpha;
+        if(treeScale > 1.0f) treeScale = 1.0f;
 
-{
+        carScale = 1.0f - transitionAlpha;
+        if(carScale < 0.0f) carScale = 0.0f;
 
-    // DAY
+        cowScale = transitionAlpha;
+        if(cowScale > 1.0f) cowScale = 1.0f;
 
-    if(!isNight)
+        roadTransition = transitionAlpha;
+        if(roadTransition > 1.0f) roadTransition = 1.0f;
 
-    {
-
-        // Glow
-
-        glColor4f(1.0f,
-
-                  0.8f,
-
-                  0.2f,
-
-                  0.15f * alpha);
-
-        drawCircle(sunX,
-
-                   sunY,
-
-                   7);
-
-        // Main sun
-
-        glColor4f(1.0f,
-
-                  0.9f,
-
-                  0.2f,
-
-                  alpha);
-
-        drawCircle(sunX,
-
-                   sunY,
-
-                   4);
-
-    }
-
-    // NIGHT
-
-    else
-
-    {
-
-        // Glow
-
-        glColor4f(1.0f,
-
-                  1.0f,
-
-                  1.0f,
-
-                  0.12f * alpha);
-
-        drawCircle(moonX,
-
-                   moonY,
-
-                   7);
-
-        // Moon
-
-        glColor4f(0.95f,
-
-                  0.95f,
-
-                  1.0f,
-
-                  alpha);
-
-        drawCircle(moonX,
-
+        cameraOffset = transitionAlpha * 5.0f;
+        if(cameraOffset > 5.0f) cameraOffset = 5.0f;
                    moonY,
 
                    4);

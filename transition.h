@@ -54,6 +54,16 @@ extern float skyGreen;
 
 extern float skyBlue;
 
+// ================= LAYER FLAGS =================
+
+extern bool showCityScene;
+
+extern bool showVillageScene;
+
+extern bool showBuildings;
+
+extern bool showTrees;
+
 // ================= FUNCTIONS =================
 
 void updateTransition();

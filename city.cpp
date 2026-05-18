@@ -592,45 +592,30 @@ void drawCityScene(float alpha)
 
     // Buildings
 
-    glPushMatrix();
-
-    glScalef(buildingScale,
-
-             buildingScale,
-
-             1);
-
-    drawModernBuilding(4,34,12,28,
-
-                       0.72f,0.42f,0.25f,
-
-                       alpha);
-
-    drawModernBuilding(18,34,14,36,
-
-                       0.55f,0.75f,0.92f,
-
-                       alpha);
-
-    drawModernBuilding(34,34,16,46,
-
-                       0.72f,0.85f,0.92f,
-
-                       alpha);
-
-    drawModernBuilding(53,34,14,30,
-
-                       0.25f,0.55f,0.75f,
-
-                       alpha);
-
-    drawModernBuilding(70,34,16,34,
-
-                       0.72f,0.42f,0.32f,
-
-                       alpha);
-
-    glPopMatrix();
+    // Buildings (can be toggled)
+    if(showBuildings)
+    {
+        glPushMatrix();
+        glScalef(buildingScale,
+                 buildingScale,
+                 1);
+        drawModernBuilding(4,34,12,28,
+                           0.72f,0.42f,0.25f,
+                           alpha);
+        drawModernBuilding(18,34,14,36,
+                           0.55f,0.75f,0.92f,
+                           alpha);
+        drawModernBuilding(34,34,16,46,
+                           0.72f,0.85f,0.92f,
+                           alpha);
+        drawModernBuilding(53,34,14,30,
+                           0.25f,0.55f,0.75f,
+                           alpha);
+        drawModernBuilding(70,34,16,34,
+                           0.72f,0.42f,0.32f,
+                           alpha);
+        glPopMatrix();
+    }
 
     // Smoke
 
